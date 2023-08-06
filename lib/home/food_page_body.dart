@@ -78,7 +78,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             ],
           ),
         ),
-        // Food and text Listview
+        // Food and Listview
         Container(
           height: 700,
           child: ListView.builder(
@@ -87,6 +87,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             itemCount: 5,
             itemBuilder: (context,index){
               return Container(
+                color: Colors.blue,
                 margin: EdgeInsets.only(left: Dimensions.height10, right: Dimensions.height10, bottom: Dimensions.height10),
                 child: Row(
                   children: [
@@ -189,6 +190,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       transform: matrix,
       child: Stack(
         children: [
+          // Image
           Container(
             height: Dimensions.pageViewContainer,
             margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
@@ -204,7 +206,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: Dimensions.pageViewTextContainer,
-              padding: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30),
+              padding: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, top: Dimensions.height10),
               margin: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10, bottom: Dimensions.height50),
               // change to 15 both, rem top
               decoration: BoxDecoration(
@@ -219,66 +221,63 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   ]
 
               ),
-              child: Container(
-                  padding: EdgeInsets.only(top: Dimensions.height15, left: Dimensions.width10, right: Dimensions.width10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  BigText(
+                    text: "Bitter Orange Marinade",
+                  ),
+                  SizedBox(
+                    height: Dimensions.height10,
+                  ),
+                  Row(
                     children: [
-                      BigText(
-                        text: "Bitter Orange Marinade",
-                      ),
-                      SizedBox(
-                        height: Dimensions.height10,
-                      ),
-                      Row(
-                        children: [
-                          Wrap(
-                            children: List.generate(
-                                5,
+                      Wrap(
+                        children: List.generate(
+                            5,
                                 (index) => Icon(Icons.star,
-                                    color: AppColors.mainColor, size: 15)),
-                          ),
-                          SizedBox(
-                            width: Dimensions.width10,
-                          ),
-                          SmallText(text: "4.5"),
-                          SizedBox(
-                            width: Dimensions.width10,
-                          ),
-                          SmallText(text: "1337"),
-                          SizedBox(
-                            width: Dimensions.width10,
-                          ),
-                          SmallText(text: "comments")
-                        ],
+                                color: AppColors.mainColor, size: 15)),
                       ),
                       SizedBox(
-                        height: Dimensions.height10,
+                        width: Dimensions.width10,
                       ),
-                      Row(
-                        children: [
-                          IconAndWidget(
-                              icon: Icons.circle_sharp,
-                              text: "Normal",
-                              iconColor: AppColors.iconColor1),
-                          SizedBox(
-                            width: Dimensions.width20,
-                          ),
-                          IconAndWidget(
-                              icon: Icons.location_on,
-                              text: "1.5km",
-                              iconColor: AppColors.mainColor),
-                          SizedBox(
-                            width: Dimensions.width20,
-                          ),
-                          IconAndWidget(
-                              icon: Icons.access_time_rounded,
-                              text: "32mins",
-                              iconColor: AppColors.iconColor2)
-                        ],
-                      )
+                      SmallText(text: "4.5"),
+                      SizedBox(
+                        width: Dimensions.width10,
+                      ),
+                      SmallText(text: "1337"),
+                      SizedBox(
+                        width: Dimensions.width10,
+                      ),
+                      SmallText(text: "comments")
+                    ],
+                  ),
+                  SizedBox(
+                    height: Dimensions.height10,
+                  ),
+                  Row(
+                    children: [
+                      IconAndWidget(
+                          icon: Icons.circle_sharp,
+                          text: "Normal",
+                          iconColor: AppColors.iconColor1),
+                      SizedBox(
+                        width: Dimensions.width20,
+                      ),
+                      IconAndWidget(
+                          icon: Icons.location_on,
+                          text: "1.5km",
+                          iconColor: AppColors.mainColor),
+                      SizedBox(
+                        width: Dimensions.width20,
+                      ),
+                      IconAndWidget(
+                          icon: Icons.access_time_rounded,
+                          text: "32mins",
+                          iconColor: AppColors.iconColor2)
                     ],
                   )
+                ],
               ),
 
             ),
