@@ -24,9 +24,9 @@ class PopularFoodDetails extends StatelessWidget {
                 )
               ),
           ),),
-          // back button
+          // back and cart button
           Positioned(
-            top: Dimensions.height50,
+            top: Dimensions.height80,
             left: Dimensions.width30,
             right: Dimensions.width30,
             child: Container(
@@ -43,6 +43,7 @@ class PopularFoodDetails extends StatelessWidget {
             top: Dimensions.popularFoodImgSize - 20,
             left: 0,
             right: 0,
+            bottom: 0,
             child: AppColumn(text: "Hello"),
           )
 

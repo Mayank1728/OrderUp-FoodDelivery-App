@@ -18,7 +18,6 @@ class AppColumn extends StatelessWidget {
     return Container(
       height: Dimensions.pageViewTextContainer,
       padding: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, top: Dimensions.height10),
-      margin: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10, bottom: Dimensions.height50),
       // change to 15 both, rem top
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
