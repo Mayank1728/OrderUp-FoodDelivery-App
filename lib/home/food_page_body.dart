@@ -87,7 +87,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             itemCount: 5,
             itemBuilder: (context,index){
               return Container(
-                color: Colors.blue,
+                color: Colors.white,
                 margin: EdgeInsets.only(left: Dimensions.height10, right: Dimensions.height10, bottom: Dimensions.height10),
                 child: Row(
                   children: [

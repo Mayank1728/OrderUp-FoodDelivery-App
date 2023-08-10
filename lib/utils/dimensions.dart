@@ -8,6 +8,7 @@ class Dimensions {
 
   static const double defaultTextSize = 24;
 
+
   static double height5 = screenHeight/160;
   static double height10 = screenHeight/80;
   static double height15 = screenHeight/50;
@@ -20,6 +21,7 @@ class Dimensions {
 
   static double widthBtwIconAndText = screenHeight/1000;
   static double font20 = screenHeight/35;
+  static double font30 = screenHeight/ 25;
   static double width10 = screenHeight/120;
   static double width20 = screenHeight/60;
   static double width30 = screenHeight/45;
@@ -30,6 +32,9 @@ class Dimensions {
   static double listViewImg = screenWidth/2.5;
   static double listViewTextContainerHeight = screenWidth/4;
 
-  static double popularFoodImgSize = screenHeight/ 2.5;
+  static double popularFoodImgSize = screenHeight/ 2.3;
+
+  static double bottomHeightBar = screenHeight/7.3;
+  static double navButtonHeight = screenHeight/9;
 
 }
