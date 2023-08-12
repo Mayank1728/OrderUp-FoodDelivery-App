@@ -4,12 +4,15 @@
 ![studio64_7LPT4RAtOn](https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/11205985-7f3d-430c-bc46-17e484df4b41)
 
 # Food Delivery App current staus
+https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/7809c0ae-1555-4e6d-b494-e2a81b69cad9
 
-
-https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/ff5270af-241a-4948-bc45-aec5f9a338ae
 
 
 
 
 # Current Status 
-UI Design is almost complete and now getting started with backend...
+Backend Integration is completed using GetX...<br>
+Things I learned <br>
+1. Conversion of Nested json to Models.<br>
+2. How the backend works ? Controller calls the Repository then Repo calls the API, then API fetches data from the server.
+3. Write more detailed version
