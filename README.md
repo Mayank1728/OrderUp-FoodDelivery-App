@@ -4,7 +4,11 @@
 ![studio64_7LPT4RAtOn](https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/11205985-7f3d-430c-bc46-17e484df4b41)
 
 # Food Delivery App current staus
-https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/7809c0ae-1555-4e6d-b494-e2a81b69cad9
+
+https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/f20ceb6c-7975-40ae-845a-9934045ca988
+
+
+
 
 
 
