@@ -1,11 +1,6 @@
 # Food Delivery App current staus
 https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/a96f354d-15aa-46a9-b13e-3321ede2b69a
 
-# App Layout Screens
-![image](https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/384d9e2b-95aa-498d-a3f5-ead785c0c3dd) 
-![studio64_eFHu51Xm2O](https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/2e289203-8d93-4d9b-a3b5-b45bf7b03b2e)
-![studio64_7LPT4RAtOn](https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/11205985-7f3d-430c-bc46-17e484df4b41)
-
 # Current Status 
 Backend Integration is completed using GetX...<br>
 Todo: Save state
