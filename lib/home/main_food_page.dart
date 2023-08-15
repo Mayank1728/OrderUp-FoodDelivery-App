@@ -20,6 +20,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
     return Scaffold(
         body: Column(
       children: [
+        SizedBox(height: Dimensions.height20,),
         // Header contains Karnataka, Banglore and Search icon
         Container(
             margin: EdgeInsets.only(

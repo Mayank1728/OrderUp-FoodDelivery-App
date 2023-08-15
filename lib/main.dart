@@ -1,5 +1,6 @@
 import 'package:app/pages/food/popular_food_detail.dart';
 import 'package:app/pages/food/recommended_food_detail.dart';
+import 'package:app/routes/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'controllers/popular_product_controller.dart';
@@ -24,13 +25,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      getPages: RouteHelper.routes,
       // home: MainFoodPage(),
       // home: PopularFoodDetails()
-      home: MainFoodPage()
+      home: MainFoodPage(),
+      // initialRoute: RouteHelper.initial,
     );
   }
 }

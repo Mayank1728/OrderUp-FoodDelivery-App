@@ -25,7 +25,7 @@ class AppColumn extends StatelessWidget {
       padding: EdgeInsets.only(
           left: Dimensions.width30,
           right: Dimensions.width30,
-          top: Dimensions.height10),
+          top: Dimensions.height20),
       // change to 15 both, rem top
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -49,20 +49,20 @@ class AppColumn extends StatelessWidget {
                 children: List.generate(
                     5,
                     (index) =>
-                        Icon(Icons.star, color: AppColors.mainColor, size: 15)),
+                        Icon(Icons.star, color: AppColors.mainColor, size: 20)),
               ),
               SizedBox(
                 width: Dimensions.width10,
               ),
-              SmallText(text: "4.5"),
+              SmallText(text: "4.5", size: 15),
               SizedBox(
                 width: Dimensions.width10,
               ),
-              SmallText(text: "1337"),
+              SmallText(text: "1337", size: 15),
               SizedBox(
                 width: Dimensions.width10,
               ),
-              SmallText(text: "comments")
+              SmallText(text: "comments", size: 15)
             ],
           ),
           SizedBox(
@@ -74,21 +74,23 @@ class AppColumn extends StatelessWidget {
               IconAndWidget(
                   icon: Icons.circle_sharp,
                   text: "Normal",
-                  iconColor: AppColors.iconColor1),
+                  iconColor: AppColors.iconColor1,
+              size: 15),
               SizedBox(
                 width: Dimensions.width20,
               ),
               IconAndWidget(
                   icon: Icons.location_on,
                   text: "1.5km",
-                  iconColor: AppColors.mainColor),
+                  iconColor: AppColors.mainColor,
+              size: 15),
               SizedBox(
                 width: Dimensions.width20,
               ),
               IconAndWidget(
                   icon: Icons.access_time_rounded,
                   text: "32mins",
-                  iconColor: AppColors.iconColor2)
+                  iconColor: AppColors.iconColor2, size: 15,)
             ],
           ),
           SizedBox(

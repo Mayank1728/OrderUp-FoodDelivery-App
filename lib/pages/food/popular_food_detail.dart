@@ -1,17 +1,24 @@
+import 'package:app/controllers/popular_product_controller.dart';
+import 'package:app/routes/route_helper.dart';
+import 'package:app/utils/app_constants.dart';
 import 'package:app/utils/dimensions.dart';
 import 'package:app/widgets/app_icon.dart';
 import 'package:app/widgets/big_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_column.dart';
 import '../../widgets/small_text.dart';
 
 class PopularFoodDetails extends StatelessWidget {
-  const PopularFoodDetails({super.key});
+  var pageId;
+  PopularFoodDetails({super.key, required this.pageId});
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<PopularProductController>().popularProductList[pageId];
     return Scaffold(
         body: Stack(
           children: [
@@ -24,7 +31,7 @@ class PopularFoodDetails extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage("assets/image/food1.png"))),
+                        image: NetworkImage(AppConstants.BASE_URL + AppConstants.UPLOAD_URL + product.img))),
               ),
             ),
             // back and shopping cart btn
@@ -36,7 +43,11 @@ class PopularFoodDetails extends StatelessWidget {
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppIcon(iconData: Icons.arrow_back_ios),
+                  GestureDetector(
+                    onTap: (){
+                      Get.toNamed(RouteHelper.getInitial());
+                    },
+                      child: AppIcon(iconData: Icons.arrow_back_ios)),
                   AppIcon(iconData: Icons.shopping_cart_outlined)
                 ],
               )),
@@ -49,14 +60,13 @@ class PopularFoodDetails extends StatelessWidget {
               left: 0,
               right: 0,
               bottom: 0,
-              child: AppColumn(text: "Sandwiches"),
+              child: AppColumn(text: product.name, para: product.description,),
             ),
-
           ],
         ),
         // Navigation bar
         bottomNavigationBar: Container(
-          height: Dimensions.bottomHeightBar,
+          height: Dimensions.bottomHeightBar - 15,
           padding: EdgeInsets.only(
               top: Dimensions.height15,
               bottom: Dimensions.height15,
@@ -99,7 +109,7 @@ class PopularFoodDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     BigText(
-                      text: "\$0.08 Add to Cart",
+                      text: "\$${product.price} Add to Cart",
                       size: 19,
                       color: Colors.white,
                     )
