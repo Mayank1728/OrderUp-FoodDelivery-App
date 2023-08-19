@@ -12,11 +12,13 @@ import '../../widgets/big_text.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
-  RecommendedFoodDetail({super.key, required this.pageId});
+
+  const RecommendedFoodDetail({super.key, required this.pageId});
 
   @override
   Widget build(BuildContext context) {
-    var productDetails = Get.find<RecommendedProductController>().recommendedProductList[pageId];
+    var productDetails =
+        Get.find<RecommendedProductController>().recommendedProductList[pageId];
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -27,13 +29,13 @@ class RecommendedFoodDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
-                  onTap: (){
-                    Get.toNamed(RouteHelper.getInitial());
-                  },
+                    onTap: () {
+                      Get.toNamed(RouteHelper.getInitial());
+                    },
                     child: AppIcon(
-                  iconData: Icons.close,
-                  iconSize: 50,
-                )),
+                      iconData: Icons.close,
+                      iconSize: 50,
+                    )),
                 AppIcon(iconData: Icons.shopping_cart_outlined)
               ],
             ),
@@ -49,16 +51,20 @@ class RecommendedFoodDetail extends StatelessWidget {
                 padding: EdgeInsets.only(
                     top: Dimensions.height5, bottom: Dimensions.height5),
                 child: Center(
-                  child: BigText(text: productDetails.name, size: Dimensions.font30),
+                  child: BigText(
+                      text: productDetails.name, size: Dimensions.font30),
                 ),
               ),
             ),
             pinned: true,
             backgroundColor: AppColors.mainColor,
+            collapsedHeight: 200,
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.network(
-                AppConstants.BASE_URL + AppConstants.UPLOAD_URL + productDetails.img!,
+                AppConstants.BASE_URL +
+                    AppConstants.UPLOAD_URL +
+                    productDetails.img!,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -73,7 +79,9 @@ class RecommendedFoodDetail extends StatelessWidget {
                     right: Dimensions.width20,
                     top: Dimensions.height30,
                     bottom: Dimensions.height30),
-                child: ExpandableTextWidget(text: productDetails.description),
+                child: Row(children: [
+                  ExpandableTextWidget(text: productDetails.description)
+                ]),
               ),
             ],
           ))
