@@ -39,33 +39,50 @@ class PopularProductController extends GetxController {
   }
 
   void setQuantity(bool isIncrement) {
-    if (isIncrement) {
-      if (quantity < 20) {
-        _quantity++;
-      } else
-        Get.snackbar("Item Count", "Max Order Limit!",
-            backgroundColor: AppColors.mainColor, colorText: Colors.white);
+    if(isIncrement){
+      _quantity = checkQuantity(_quantity+1);
     } else {
-      if (_quantity > 0)
-        _quantity--;
-      else
-        Get.snackbar("Item count", "Orders cannot be less than 0",
-            backgroundColor: AppColors.mainColor, colorText: Colors.white);
+      _quantity = checkQuantity(_quantity - 1);
     }
     update();
+  }
+  int checkQuantity(int quantity) {
+    if (_inCartItems + quantity < 0) {
+      Get.snackbar("Item Count", "You can't reduce more!",
+          backgroundColor: AppColors.mainColor, colorText: Colors.white);
+      return 0;
+    } else if (_inCartItems + quantity > 20) {
+      Get.snackbar("Item Count", "Max Order Limit!",
+          backgroundColor: AppColors.mainColor, colorText: Colors.white);
+      return 20;
+    } else {
+      return quantity;
+    }
   }
 
   void initProduct(ProductModel product, CartController cart) {
     _quantity = 0;
     _inCartItems = 0;
     _cart = cart;
+    var exist = false;
+    exist = _cart.existInCart(product);
+    print("does exist: $exist");
+    if(exist){
+      _inCartItems = _cart.getQuantity(product);
+    }
   }
 
   void addItem(ProductModel product) {
-    _cart.addItem(product, _quantity);
-    _quantity = 0;
-    _cart.items.forEach((key, value){
-      print('$key and ${value.quantity} are present');
-    });
+    //if(_quantity > 0){
+      _cart.addItem(product, _quantity);
+      _quantity = 0;
+      _inCartItems = _cart.getQuantity(product);
+      _cart.items.forEach((key, value) {
+        print('$key and ${value.quantity} are present');
+      });
+    // } else {
+    //   Get.snackbar("Item Count", "Add atleast 1 item!",
+    //       backgroundColor: AppColors.mainColor, colorText: Colors.white);
+    // }
   }
 }
