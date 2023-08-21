@@ -3,6 +3,7 @@ class Product {
   int? _typeId;
   int? _offset;
   late List<ProductModel> _products;
+
   List<ProductModel> get products => _products;
 
   Product(

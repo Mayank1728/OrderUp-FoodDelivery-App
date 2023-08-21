@@ -55,7 +55,7 @@ class PopularProductController extends GetxController {
     update();
   }
 
-  void initProduct(CartController cart) {
+  void initProduct(ProductModel product, CartController cart) {
     _quantity = 0;
     _inCartItems = 0;
     _cart = cart;
@@ -64,7 +64,7 @@ class PopularProductController extends GetxController {
   void addItem(ProductModel product) {
     _cart.addItem(product, _quantity);
     _quantity = 0;
-    _cart.itmes.forEach((key, value){
+    _cart.items.forEach((key, value){
       print('$key and ${value.quantity} are present');
     });
   }

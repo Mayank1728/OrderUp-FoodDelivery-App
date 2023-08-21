@@ -10,4 +10,6 @@ Video: [https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/7817d3a0
 1. Networking: https://mayank1728.hashnode.dev/15-things-i-learned-about-networking
 2. Flutter Framework:
 3. Dart and Dart Networking:
+4. Dependency Injection: https://www.youtube.com/watch?v=IKD2-MAkXyQ
+5. GetX:
 

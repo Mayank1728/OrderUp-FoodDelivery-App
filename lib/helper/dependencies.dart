@@ -13,9 +13,11 @@ Future<void> init() async {
   Get.lazyPut(() => ApiClient(appBaseUrl: AppConstants.BASE_URL));
 
   //Repos
+  // Honestly Repos are not doing much here
+  // Basically are just a layer between controller and API client
   Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
   Get.lazyPut(() => RecommendedProductRepo(apiClient: Get.find()));
-  Get.lazyPut(()=>CartRepo());
+  Get.lazyPut(() => CartRepo());
 
   // Controllers
   Get.lazyPut(() => PopularProductController(popularProductRepo: Get.find()));

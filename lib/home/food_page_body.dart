@@ -65,8 +65,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             popularProducts.popularProductList[position]);
                       }),
                 )
-              : CircularProgressIndicator(
-                  color: AppColors.mainColor,
+              : Container(
+                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                  child: CircularProgressIndicator(
+                    color: AppColors.mainColor,
+                  ),
                 );
         }),
         // Dots and animation
