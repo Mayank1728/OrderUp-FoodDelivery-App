@@ -10,6 +10,7 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../controllers/cart_controller.dart';
 import '../../utils/colors.dart';
 import '../../widgets/app_column.dart';
+import '../cart/cart_page.dart';
 
 class PopularFoodDetails extends StatelessWidget {
   var pageId;
@@ -56,8 +57,19 @@ class PopularFoodDetails extends StatelessWidget {
                 GetBuilder<PopularProductController>(builder: (controller) {
                   return Stack(
                     children: [
-                      AppIcon(iconData: Icons.shopping_cart_outlined),
-
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(()=> CartPage());
+                        },
+                          child: AppIcon(iconData: Icons.shopping_cart_outlined)),
+                      controller.totalItems >= 1 ?
+                          //AppIcon(iconData: Icons.circle, iconSize: 20,iconColor: Colors.transparent, backgroundColor: AppColors.mainColor,):
+                          Positioned(right: 0, top: 0, child: Icon(Icons.circle, size:23, color: AppColors.mainColor,)):
+                          Container(),
+                      controller.totalItems >= 1 ?
+                      //AppIcon(iconData: Icons.circle, iconSize: 20,iconColor: Colors.transparent, backgroundColor: AppColors.mainColor,):
+                      Positioned(right: 7, top: 3, child: BigText(text: "${controller.totalItems}", size: 12.5, color: Colors.white,)):
+                      Container(),
                     ],
                   );
                 }),

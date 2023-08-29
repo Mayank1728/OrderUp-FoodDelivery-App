@@ -79,4 +79,12 @@ class CartController extends GetxController {
     });
     return totalQuantity;
   }
+
+  List<CartModel> get getItems{
+    // we are converting map to list
+    // the map contains <int,CartModel>
+    // 0 -> CartModel0
+    // 1 -> CartModel1 ..etc
+    return _items.values.toList();
+  }
 }

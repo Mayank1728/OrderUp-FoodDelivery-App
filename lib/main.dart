@@ -1,3 +1,4 @@
+import 'package:app/pages/cart/cart_page.dart';
 import 'package:app/pages/food/popular_food_detail.dart';
 import 'package:app/pages/food/recommended_food_detail.dart';
 import 'package:app/routes/route_helper.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
       // home: MainFoodPage(),
       // home: PopularFoodDetails()
       home: MainFoodPage(),
-      // initialRoute: RouteHelper.initial,
+      initialRoute: RouteHelper.initial,
+      //home: CartPage(),
     );
   }
 }
