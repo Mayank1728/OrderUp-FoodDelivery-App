@@ -53,7 +53,14 @@ class PopularFoodDetails extends StatelessWidget {
                       Get.toNamed(RouteHelper.getInitial());
                     },
                     child: AppIcon(iconData: Icons.arrow_back_ios)),
-                AppIcon(iconData: Icons.shopping_cart_outlined)
+                GetBuilder<PopularProductController>(builder: (controller) {
+                  return Stack(
+                    children: [
+                      AppIcon(iconData: Icons.shopping_cart_outlined),
+
+                    ],
+                  );
+                }),
               ],
             )),
           ),
