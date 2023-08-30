@@ -1,4 +1,4 @@
-# Food Delivery App current status
+# OrderUp current status
 https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/248b60b9-a631-4986-a022-3d5e6878c47a
 
 
