@@ -15,4 +15,5 @@ Video: [https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/7817d3a0
 4. Dependency Injection: https://www.youtube.com/watch?v=IKD2-MAkXyQ
 5. GetX:
 6. Object oriented programming
+7. MVC pattern: https://mayank1728.hashnode.dev/eli5-mvc-pattern
 
