@@ -2,13 +2,13 @@ import 'package:app/controllers/cart_controller.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../data/repository/popular_product_repo.dart';
 import '../models/cart_model.dart';
 import '../models/products_model.dart';
 
 class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;
+
 
   PopularProductController({required this.popularProductRepo});
 

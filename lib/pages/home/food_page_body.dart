@@ -1,6 +1,5 @@
 import 'package:app/controllers/popular_product_controller.dart';
 import 'package:app/controllers/recommended_product_controller.dart';
-import 'package:app/pages/food/popular_food_detail.dart';
 import 'package:app/routes/route_helper.dart';
 import 'package:app/utils/colors.dart';
 import 'package:app/utils/dimensions.dart';
@@ -10,9 +9,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../models/products_model.dart';
-import '../utils/app_constants.dart';
-import '../widgets/big_text.dart';
+import '../../models/products_model.dart';
+import '../../utils/app_constants.dart';
+import '../../widgets/big_text.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -45,6 +44,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   void dispose() {
     pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -120,7 +120,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
-                    Get.toNamed(RouteHelper.getRecommendedFood(index));
+                    Get.toNamed(RouteHelper.getRecommendedFood(index, ""));
                   },
                   child: Container(
                     color: Colors.white,
@@ -247,7 +247,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           // Image
           GestureDetector(
             onTap: () {
-              Get.toNamed(RouteHelper.getPopularFoodPage(index));
+              Get.toNamed(RouteHelper.getPopularFoodPage(index, "home"));
             },
             child: Container(
               height: Dimensions.pageViewContainer,
@@ -256,7 +256,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               // change to 15 both, rem top
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radius30),
-                  color: index % 2 == 0 ? Color(0xFF69c5df) : Color(0xFF9294cc),
+                  color: index % 2 == 0 ? Color
+                    (0xFF69c5df) : Color(0xFF9294cc),
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(AppConstants.BASE_URL +

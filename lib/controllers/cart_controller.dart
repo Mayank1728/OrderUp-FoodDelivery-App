@@ -27,6 +27,7 @@ class CartController extends GetxController {
           quantity: value.quantity! + quantity,
           isExist: true,
           time: DateTime.now().toString(),
+          product: productModel,
         );
       });
       if (totalQuantity <= 0) _items.remove(productModel.id);
@@ -44,6 +45,7 @@ class CartController extends GetxController {
             quantity: quantity,
             isExist: true,
             time: DateTime.now().toString(),
+            product: productModel
           );
         });
       } else {
@@ -51,6 +53,8 @@ class CartController extends GetxController {
             backgroundColor: AppColors.mainColor, colorText: Colors.white);
       }
     }
+    cartRepo.addToCarList(getItems);
+    update();
   }
 
   bool existInCart(ProductModel product) {
@@ -87,4 +91,14 @@ class CartController extends GetxController {
     // 1 -> CartModel1 ..etc
     return _items.values.toList();
   }
+
+  int get totalAmount{
+    List<CartModel> items = getItems;
+    int total = 0;
+    for(int i = 0; i < items.length; i++){
+      total += (items[i].quantity! * items[i].price!);
+    }
+    return total;
+  }
+
 }

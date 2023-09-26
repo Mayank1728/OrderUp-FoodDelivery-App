@@ -1,6 +1,13 @@
 import 'package:app/utils/app_constants.dart';
 import 'package:get/get.dart';
 
+/// GetxService is an interface
+/// ApiClient inherits from GetConnect
+/// And since java DOESN'T allow multiple inheritance
+/// we have interface class where you write the func prototype
+/// and then complete the function inside the derived class
+
+
 class ApiClient extends GetConnect implements GetxService{
   late String token;
   final String appBaseUrl;
