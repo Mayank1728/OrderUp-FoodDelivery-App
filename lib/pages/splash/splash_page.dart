@@ -43,9 +43,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   void initState() {
     super.initState();
     _loadResource();
-    controller = AnimationController(vsync: this, duration: const Duration(seconds: 2))..forward();
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 500))..forward();
     animation = CurvedAnimation(parent: controller, curve: Curves.linear);
-    Timer(const Duration(seconds: 3), () => Get.offNamed(RouteHelper.getInitial()));
+    Timer(const Duration(seconds: 1), () => Get.offNamed(RouteHelper.getInitial()));
   }
 
   @override
