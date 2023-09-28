@@ -41,6 +41,7 @@ class CartModel {
       "quantity": quantity,
       "isExist": isExist,
       "time": time,
+      "product": product!.toJson(),
     };
   }
 }

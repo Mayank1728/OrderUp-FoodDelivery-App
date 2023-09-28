@@ -26,7 +26,7 @@ class RouteHelper {
     GetPage(name: splashPage, page: () => SplashScreen()),
     GetPage(name: initial, page: () => HomePage()),
     GetPage(name: popularFood, page: (){
-      print('Popular Food Page');
+      //print('Popular Food Page');
       var pageId = Get.parameters['pageId'];
       var page = Get.parameters['page'];
       return PopularFoodDetails(pageId: int.parse(pageId!), page: page!);

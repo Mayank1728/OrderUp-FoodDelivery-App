@@ -3,6 +3,7 @@ import 'package:app/pages/splash/splash_page.dart';
 import 'package:app/routes/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'controllers/cart_controller.dart';
 import 'controllers/popular_product_controller.dart';
 import 'controllers/recommended_product_controller.dart';
 import 'helper/dependencies.dart' as dep;
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.find<CartController>().getCartData();
     return GetBuilder<PopularProductController>(builder:(_){
       return GetBuilder<RecommendedProductController>(builder: (_){
         return GetMaterialApp(

@@ -17,7 +17,6 @@ Future<void> init() async {
   Get.put(ApiClient(appBaseUrl: AppConstants.BASE_URL));
 
   //Repos
-  // Honestly Repos are not doing much here
   // Basically are just a layer between controller and API client
   Get.put(PopularProductRepo(apiClient: Get.find()));
   Get.put(RecommendedProductRepo(apiClient: Get.find()));
