@@ -110,7 +110,7 @@ class PopularFoodDetails extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(Dimensions.radius15),
                   topRight: Radius.circular(Dimensions.radius15)),
-              color: AppColors.signColor),
+              color: Colors.grey[300]),
           child: Row(
             // can fix the button sizes
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

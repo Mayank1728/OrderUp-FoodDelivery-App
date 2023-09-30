@@ -1,4 +1,6 @@
+import 'package:app/base/no_data_page.dart';
 import 'package:app/controllers/cart_controller.dart';
+import 'package:app/routes/route_helper.dart';
 import 'package:app/utils/app_constants.dart';
 import 'package:app/utils/colors.dart';
 import 'package:app/utils/dimensions.dart';
@@ -14,8 +16,8 @@ class CartHistory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cartHistoryList = Get.find<CartController>()
-        .getCartHistoryList();
+    var cartHistoryList =
+        Get.find<CartController>().getCartHistoryList().reversed.toList();
     Map<String, int> cartItemsPerOrder = Map();
     // str is time and no of orders
     for (int i = 0; i < cartHistoryList.length; i++) {
@@ -26,22 +28,46 @@ class CartHistory extends StatelessWidget {
         cartItemsPerOrder.putIfAbsent(cartHistoryList[i].time!, () => 1);
       }
     }
-    List<int> cartOrderTimeToList() {
+    List<int> cartItemsPerOrderToList() {
       return cartItemsPerOrder.entries.map((e) => e.value).toList();
     }
+    List<String> cartOrderTimeToList(){
+      return cartItemsPerOrder.entries.map((e) => e.key).toList();
+    }
 
-    List<int> itemsPerOrder = cartOrderTimeToList();
-    var listCounter = cartHistoryList.length - 1;
+    // itemsPerOrder contains keys of cartItemsPerOrder
+    // cartHistoryList contains order history
+    List<int> itemsPerOrder = cartItemsPerOrderToList();
+    var listCounter = 0;
+    var cartController = Get.find<CartController>();
+
+    Widget timeWidget(int index){
+      var outputDate = DateTime.now().toString();
+      if(index < cartHistoryList.length){
+        DateTime parseDate =
+        DateFormat("yyyy-MM-dd HH:mm:ss").parse(
+            cartHistoryList[listCounter].time!);
+        DateTime inputDate =
+        DateTime.parse(parseDate.toString());
+        var outputFormat =
+        DateFormat("EEE, dd MMM yyyy HH:mm a");
+        outputDate = outputFormat.format(inputDate);
+      } else{
+        listCounter = 0;
+      }
+      return BigText(text: outputDate, size: 20,);
+    }
 
     return Scaffold(
         body: SafeArea(
       child: Column(
         children: [
           Container(
-            height: 70,
+            height: Dimensions.height100,
             padding: EdgeInsets.only(top: 10),
             width: double.maxFinite,
-            margin: EdgeInsets.only(left: 15, right: 15),
+            margin: EdgeInsets.only(
+                left: Dimensions.width30, right: Dimensions.width30),
             //color: Colors.white,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,91 +84,136 @@ class CartHistory extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-              child: Container(
-            margin: EdgeInsets.only(
-              top: Dimensions.height20,
-              left: Dimensions.width30,
-              right: Dimensions.width30,
-            ),
-            child: MediaQuery.removePadding(
-                removeTop: true, context: context, child: ListView(
-              children: [
-                for (int i = itemsPerOrder.length - 1; i > -1; i--) // [3,3,1,2] in reverse
-                  Container(
-                    height: 120,
-                    margin: EdgeInsets.only(bottom: 20),
-                    child: Column(
-                      // toString()
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ((){
-                          // These are called IDE: Immediately Invoked functions
-                          DateTime parseDate = DateFormat("yyyy-MM-dd HH:mm:ss").parse(cartHistoryList[listCounter].time!);
-                          DateTime inputDate = DateTime.parse(parseDate.toString());
-                          var outputFormat = DateFormat("EEE, dd MMM yyyy HH:mm a");
-                          var outputDate = outputFormat.format(inputDate);
-                          return BigText(text: outputDate, size: 20,);
-                        }()),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Wrap(
-                              children:
-                              List.generate(itemsPerOrder[i] > 3 ? 3 : itemsPerOrder[i], (index) {
-                                return Container(
-                                  height: 70,
-                                  width: 70,
-                                  margin: EdgeInsets.only(top: 12, left: 5, right: 5),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          Dimensions.radius15/2),
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(AppConstants
-                                              .BASE_URL +
-                                              AppConstants.UPLOAD_URL +
-                                              cartHistoryList[listCounter--]
-                                                  .product!
-                                                  .img!))),
-                                );
-                              }),
-                            ),
+          GetBuilder<CartController>(builder: (_cartController){
+            return Expanded(
+                child: Container(
+                  margin: EdgeInsets.only(
+                    top: Dimensions.height20,
+                    left: Dimensions.width30,
+                    right: Dimensions.width30,
+                  ),
+                  child: MediaQuery.removePadding(
+                      removeTop: true,
+                      context: context,
+                      child: ListView(
+                        children: [
+                          for (int i = 0; i < itemsPerOrder.length; i++) // [3,3,1,2] in reverse
                             Container(
-                              //color: AppColors.yellowColor,
-                              height: 90,
+                              height: 120,
+                              margin: EdgeInsets.only(bottom: Dimensions.height10),
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                                // toString()
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  SmallText(text: "Total", size: 18,),
-                                  BigText(text: "${itemsPerOrder[i]} Items", size: 23,),
-                                  Container(
-                                    height: 25,
-                                    width: 65,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(Dimensions.radius15/2),
-                                      border: Border.all(color: AppColors.mainColor, width: 1)
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        BigText(text: "Hello",size: 12, color: AppColors.mainColor,),
-                                      ],
-                                    )
-                                  )
+                                  timeWidget(listCounter),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Wrap(
+                                        children: List.generate(
+                                            itemsPerOrder[i] > 3
+                                                ? 3
+                                                : itemsPerOrder[i], (index) {
+                                          return Container(
+                                            height: Dimensions.height100 - 11,
+                                            width: Dimensions.height100 - 11,
+                                            margin: EdgeInsets.only(
+                                                top: 12, left: 5, right: 5),
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(
+                                                    Dimensions.radius15 / 2),
+                                                image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: NetworkImage(AppConstants
+                                                        .BASE_URL +
+                                                        AppConstants.UPLOAD_URL +
+                                                        cartHistoryList[listCounter++]
+                                                            .product!
+                                                            .img!))),
+                                          );
+                                        }),
+                                      ),
+                                      Container(
+                                        //color: AppColors.yellowColor,
+                                        height: 90,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment: CrossAxisAlignment.end,
+                                          children: [
+                                            SmallText(
+                                              text: "Total",
+                                              size: 18,
+                                            ),
+                                            BigText(
+                                              text: "${itemsPerOrder[i]} Items",
+                                              size: 23,
+                                            ),
+                                            Container(
+                                                height: 25,
+                                                width: 65,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                    BorderRadius.circular(
+                                                        Dimensions.radius15 / 2),
+                                                    border: Border.all(
+                                                        color: AppColors.mainColor,
+                                                        width: 1)),
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    // Repeat order function
+                                                    // itemsPerOrder contains keys of cartItemsPerOrder
+                                                    // cartHistoryList contains order history <CartModel>
+                                                    //List<int> itemsPerOrder = cartItemsPerOrderToList();
+                                                    // [3, 2, 4, 3]
+                                                    //var listCounter = 0;
+                                                    cartController.clear();
+                                                    int totalItems = itemsPerOrder[i];
+                                                    int skip = 0;
+                                                    for(int j = 0; j != i; j++){
+                                                      skip += itemsPerOrder[j];
+                                                    }
+                                                    /*
+                                              *   for(int j = skip + totalItems - 1; j >= skip ; j--){
+                                                    var pm = cartHistoryList[j].product;
+                                                    var qty = cartHistoryList[j].quantity;
+                                                    cartController.addItem(pm!, qty!);
+                                                   }
+                                              *
+                                              * */
+                                                    // this for loop is reverse of above
+                                                    // adds items to the cart in same order
+                                                    for(int j = skip + totalItems - 1; j >= skip ; j--){
+                                                      var pm = cartHistoryList[j].product;
+                                                      var qty = cartHistoryList[j].quantity;
+                                                      cartController.addItem(pm!, qty!);
+                                                    }
+                                                    Get.toNamed(RouteHelper.getCartPage());
+                                                  },
+                                                  child: Column(
+                                                    mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                    children: [
+                                                      BigText(
+                                                        text: "Repeat",
+                                                        size: 12,
+                                                        color: AppColors.mainColor,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ))
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ],
                               ),
-
                             )
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-              ],
-            )),
-          ))
+                        ],
+                      )),
+                ));
+          })
         ],
       ),
     ));

@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/cart_model.dart';
 
 class CartRepo{
-  final SharedPreferences sharedPreferences;
+  late SharedPreferences sharedPreferences;
   CartRepo({required this.sharedPreferences});
 
   List<String> cart = []; // cart data is stored in local storage
@@ -16,8 +16,11 @@ class CartRepo{
   // into string data and saves inside local storage
   // each time you add food to cart
   void addToCarList(List<CartModel> cartList){
-    //sharedPreferences.remove(AppConstants.CART_LIST);
-    //sharedPreferences.remove(AppConstants.CART_HISTORY_LIST);
+    // sharedPreferences.remove(AppConstants.CART_LIST);
+    // sharedPreferences.remove(AppConstants.CART_HISTORY_LIST);
+    // return;
+    // when removing the data from localstorage by uncommenting above
+    // make sure to restart the app
     var time = DateTime.now().toString();
     cart = [];
     cartList.forEach((element) {
@@ -59,7 +62,7 @@ class CartRepo{
   }
 
   // when u click on place order
-  // the cartmodels inside the cart is removed
+  // the cartmodels inside the cart are removed
   // and this data is saved as cartHistory
   void addToCartHistoryList(){
     if(sharedPreferences.containsKey(AppConstants.CART_HISTORY_LIST)){
