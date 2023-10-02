@@ -1,5 +1,5 @@
 # OrderUp current status
-https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/248b60b9-a631-4986-a022-3d5e6878c47a
+https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/0ab84278-1445-4498-aa18-48ffee947923
 
 
 # MVC(Model View Controller) Pattern
@@ -11,9 +11,12 @@ VirusTotal Result: https://www.virustotal.com/gui/file/ab822df093084d64e9b568fae
 # Things I learned
 1. Networking: https://mayank1728.hashnode.dev/15-things-i-learned-about-networking
 2. Flutter Framework:
-3. Dart and Dart Networking:
+3. Dart:
 4. Dependency Injection: https://www.youtube.com/watch?v=IKD2-MAkXyQ
 5. GetX:
 6. Object oriented programming
 7. MVC pattern: https://mayank1728.hashnode.dev/eli5-mvc-pattern
+8. php and laravel:
+9. backend:
+10. mySQL
 
