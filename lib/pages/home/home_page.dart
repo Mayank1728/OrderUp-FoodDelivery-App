@@ -1,3 +1,4 @@
+import 'package:app/pages/account/account_page.dart';
 import 'package:app/pages/splash/splash_page.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -22,11 +23,7 @@ class _HomePageState extends State<HomePage> {
         child: Text("Cart Page"),
       ),
     ),
-    Container(
-      child: Center(
-        child: Text("Account Page"),
-      ),
-    )
+    AccountPage()
   ];
   void onTapNav(int index){
     setState(() {
