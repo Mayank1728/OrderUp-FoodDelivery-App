@@ -12,41 +12,40 @@ class AccountPage extends StatelessWidget {
       body: SafeArea(
           child: Column(
         children: [
+          SizedBox(height: 15,),
           Container(
-            height: 70,
+            height: 60,
             // margin: EdgeInsets.only(top: 20),
             width: double.maxFinite,
-            decoration: BoxDecoration(
-              color: AppColors.mainColor,
-            ),
             child: Center(
                 child: BigText(
                   text: "My Account",
-                  color: Colors.white,
+                  color: AppColors.mainColor,
                   size: 27,
                 )),
           ),
           Container(
             child: Icon(
               Icons.account_circle_rounded,
-              size: 205,
+              size: 150,
               color: AppColors.mainColor,
             ),
           ),
+          SizedBox(height: 25,),
           Expanded(
               child: ListView(
             children: [
               Container(
-                  height: 80,
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  margin: EdgeInsets.only(bottom: 15),
+                  height: 50,
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  margin: EdgeInsets.only(bottom: 20),
                   width: double.maxFinite,
                   //color: Colors.green,
                   child: Row(
                     children: [
                       Icon(
                         Icons.account_circle_rounded,
-                        size: 60,
+                        size: 50,
                         color: AppColors.mainColor,
                       ),
                       SizedBox(
@@ -56,16 +55,16 @@ class AccountPage extends StatelessWidget {
                     ],
                   )),
               Container(
-                  height: 80,
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  margin: EdgeInsets.only(bottom: 15),
+                  height: 50,
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  margin: EdgeInsets.only(bottom: 20),
                   width: double.maxFinite,
                   // color: Colors.green,
                   child: Row(
                     children: [
                       Icon(
                         Icons.phone,
-                        size: 60,
+                        size: 50,
                         color: AppColors.mainColor,
                       ),
                       SizedBox(
@@ -75,35 +74,35 @@ class AccountPage extends StatelessWidget {
                     ],
                   )),
               Container(
-                  height: 80,
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  margin: EdgeInsets.only(bottom: 15),
+                  height: 50,
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  margin: EdgeInsets.only(bottom: 20),
                   width: double.maxFinite,
                   // color: Colors.green,
                   child: Row(
                     children: [
                       Icon(
                         Icons.mail_outline,
-                        size: 60,
+                        size: 50,
                         color: AppColors.mainColor,
                       ),
                       SizedBox(
                         width: 15,
                       ),
-                      BigText(text: "mm1919@srmist.edu.in")
+                      BigText(text: "mm1919@srmist.edu.in",size: 20,)
                     ],
                   )),
               Container(
-                  height: 80,
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  margin: EdgeInsets.only(bottom: 15),
+                  height: 50,
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  margin: EdgeInsets.only(bottom: 20),
                   width: double.maxFinite,
                   //color: Colors.green,
                   child: Row(
                     children: [
                       Icon(
                         Icons.location_on_outlined,
-                        size: 60,
+                        size: 50,
                         color: AppColors.mainColor,
                       ),
                       SizedBox(
@@ -113,16 +112,16 @@ class AccountPage extends StatelessWidget {
                     ],
                   )),
               Container(
-                  height: 80,
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  margin: EdgeInsets.only(bottom: 15),
+                  height: 50,
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  margin: EdgeInsets.only(bottom: 20),
                   width: double.maxFinite,
                   //color: Colors.green,
                   child: Row(
                     children: [
                       Icon(
                         Icons.notifications_none_outlined,
-                        size: 60,
+                        size: 50,
                         color: AppColors.mainColor,
                       ),
                       SizedBox(
@@ -132,16 +131,16 @@ class AccountPage extends StatelessWidget {
                     ],
                   )),
               Container(
-                  height: 80,
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  margin: EdgeInsets.only(bottom: 15),
+                  height: 50,
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  margin: EdgeInsets.only(bottom: 20),
                   width: double.maxFinite,
                   // color: Colors.green,
                   child: Row(
                     children: [
                       Icon(
                         Icons.help_outline_outlined,
-                        size: 60,
+                        size: 50,
                         color: AppColors.mainColor,
                       ),
                       SizedBox(

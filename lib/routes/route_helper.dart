@@ -31,7 +31,7 @@ class RouteHelper {
       var page = Get.parameters['page'];
       return PopularFoodDetails(pageId: int.parse(pageId!), page: page!);
     },
-      transition: Transition.fadeIn
+      transition: Transition.rightToLeft
     ),
     GetPage(name: recommendedFood, page: (){
       print('Recommeend Food');
@@ -39,12 +39,12 @@ class RouteHelper {
       var page = Get.parameters['page'];
       return RecommendedFoodDetail(pageId: int.parse(pageId!), page: page!);
     },
-    transition: Transition.fadeIn),
+    transition: Transition.rightToLeft),
     GetPage(
       name: cartPage, page: (){
         return CartPage();
     },
-      transition: Transition.fadeIn
+      transition: Transition.rightToLeft
     ),
   ];
 

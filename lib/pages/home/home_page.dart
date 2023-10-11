@@ -1,4 +1,5 @@
 import 'package:app/pages/account/account_page.dart';
+import 'package:app/pages/cart/cart_page.dart';
 import 'package:app/pages/splash/splash_page.dart';
 import 'package:app/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +19,7 @@ class _HomePageState extends State<HomePage> {
   List pages = [
     MainFoodPage(),
     CartHistory(),
-    Container(
-      child: Center(
-        child: Text("Cart Page"),
-      ),
-    ),
+    CartPage(),
     AccountPage()
   ];
   void onTapNav(int index){

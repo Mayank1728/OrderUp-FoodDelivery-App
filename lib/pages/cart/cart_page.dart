@@ -243,7 +243,7 @@ class CartPage extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(Dimensions.radius15),
                         topRight: Radius.circular(Dimensions.radius15)),
-                    color: cartController.getItems.length == 0 ? Colors.grey[50]: Colors.grey[300]),
+                    color: cartController.getItems.length == 0 ? Colors.grey[50]: Colors.grey[100]),
                 child:cartController.getItems.length == 0? Container() : Row(
                   // can fix the button sizes
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
