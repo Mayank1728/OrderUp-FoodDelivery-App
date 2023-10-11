@@ -1,5 +1,6 @@
 # OrderUp current status
-https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/0ab84278-1445-4498-aa18-48ffee947923
+https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/e2560228-6440-46b3-9de8-27aa9ebbe8f7
+
 
 
 # MVC(Model View Controller) Pattern
