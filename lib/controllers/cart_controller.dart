@@ -18,6 +18,8 @@ class CartController extends GetxController {
 
   void addItem(ProductModel productModel, int quantity) {
     var totalQuantity = 0;
+    // we are updating the quantity of the productModel
+    // present inside the items hashmap
     if (_items[productModel.id!] != null) {
       _items.update(productModel.id!, (value) {
         totalQuantity = value.quantity! + quantity;
@@ -55,7 +57,9 @@ class CartController extends GetxController {
             backgroundColor: AppColors.mainColor, colorText: Colors.white);
       }
     }
-    cartRepo.addToCarList(getItems);
+    //getItems is converting _items map to list
+    // and then all the items are addedToCartList
+    cartRepo.addToCartList(getItems);
     update();
   }
 

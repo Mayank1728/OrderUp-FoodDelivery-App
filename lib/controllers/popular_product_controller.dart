@@ -82,7 +82,7 @@ class PopularProductController extends GetxController {
   void addItem(ProductModel product) {
     //if(_quantity > 0){
       _cart.addItem(product, _quantity);
-      _quantity = 0;
+      _quantity = 0; // why ? so that when u open same product next time, the value is updated from cart.
       _inCartItems = _cart.getQuantity(product);
       _cart.items.forEach((key, value) {
         print('$key and ${value.quantity} are present');

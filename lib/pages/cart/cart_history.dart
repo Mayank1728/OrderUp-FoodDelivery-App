@@ -17,7 +17,8 @@ class CartHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cartHistoryList =
-        Get.find<CartController>().getCartHistoryList().reversed.toList();
+        Get.find<CartController>().getCartHistoryList();
+    rev(cartHistoryList);
     Map<String, int> cartItemsPerOrder = Map();
     // str is time and no of orders
     for (int i = 0; i < cartHistoryList.length; i++) {
@@ -217,5 +218,16 @@ class CartHistory extends StatelessWidget {
         ],
       ),
     ));
+  }
+  // LeetCode reverse an array
+  void rev(List<dynamic> arr){
+    int start = 0, end = arr.length - 1;
+    while(start < end){
+      dynamic temp = arr[start];
+      arr[start] = arr[end];
+      arr[end] = temp;
+      start++;
+      end--;
+    }
   }
 }
