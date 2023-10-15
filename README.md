@@ -23,3 +23,72 @@ VirusTotal Result: https://www.virustotal.com/gui/file/ab822df093084d64e9b568fae
 9. backend:
 10. mySQL
 
+## Libraries Used
+1. GetX: GetX is used for dependency injection(passing instance of 1 class into another), Routing which is navigation b/w pages, state management(State means data, so when data changes these changes are reflected in UI), Included snackbars, GetX controller and some interfaces.
+
+2. Dots Indicator: UI library to show dots animation below the horizontal listview on the homepage.
+
+3. Shared-Preferences: Used to store the data inside LOCALSTORAGE as string and retreive data and convert back to models. Used to store cartModels for Cart-History and Cart in form of Key-Value pair. This makes sure state persistence.
+
+4. Intl: For converting time from 1 international format to another.
+
+## Project Structure
+* Base
+  + NoDataPage.dart
+
+* Controllers
+  + CartControllers.dart
+	+ popularProductController.dart
+	+ recommendedProductController.dart
+
+* Data
+  + Api
+    - ApiClient.dart
+	+ Repository
+	  - CartRepo.dart
+		- PopularProductRepo.dart
+		- RecommendedProductRepo.dart
+
+* Helper
+  + Dependencies.dart
+
+* Modles
+  + CartModel.dart
+	+ ProductModel.dart
+    
+* Pages
+  + Account
+		- AccountPage.dart
+	+ Auth
+	  - SignUpPage.dart
+	+ Cart
+	  - CartHistoryPage.dart
+		- CartPage.dart
+	+ Food
+	  - PopularFoodDetails.dart
+		- RecommendedFoodDetails.dart
+	+ Home
+	  - FoodPageBody.dart
+		- HomePage.dart
+		- MainFoodPage.dart
+	+ Splash
+	  - SplashScreen.dart
+  
+* Routers
+  + RouteHelper.dart
+    
+* Utils
+  + AppConstants.dart
+	+ Colors.dart
+	+ Dimensions.dart
+    
+* Widgets
+  + AppColumn.dart
+	+ AppIcon.dart
+	+ BigText.dart
+	+ ExpandableText.dart
+	+ IconAndText.dart
+	+ SmallText.dart
+    
+* main.dart
+
