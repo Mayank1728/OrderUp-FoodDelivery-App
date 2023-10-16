@@ -81,6 +81,7 @@ Controllers are used to control the flow of data between UI and Models(Data stor
 ![firefox_UchmNqasHb](https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/4163421f-e40f-4c76-bf4e-8319a8db0526)
 
 There are 3 controllers
+
 ## PopularProductController
 PopularProductController extends GetxController class and the constructor expects an instance of PopularProductRepo class.
 - Attributes 
@@ -89,17 +90,26 @@ PopularProductController extends GetxController class and the constructor expect
 	3. _cart: CartController and 
 	4. isLoaded: bool variable which gets updated to true when the JSON response is received and converted to ProductModel.
 	5. _quantity: int and holds the quantity of current/this product item. For example cake ProductModel might have _quantity = 2 and others 0.
-	6. _inCartItems: int and 
+	6. _inCartItems: int and total items present inside the cart.
 	7. 
 - Member Functions
 	1. getPopularProductList(): awaits for popularProductRepo to fetch JSON response and converts it into ProductModels. All the ProductModels are then added to the _popularProductList.
 	2. setQuantity(bool): when you pass true quantity is increased otherwise its decreased. However, before increasing/decreasing sanity checks are performed using checkQuantity();
 	3. checkQuantity(int): provides sanity checks such as quantity CANNOT be less than 0. Moreover, you cannot add any item more than 20 times. Also, snackbars are displayed when quantity < 0 or quantity > 20.
-	4. initProduct(ProductModel, CartController): Used to create instance of ProductModel inside the cart.
-	5. addItem(ProductModel):
-
+	4. initProduct(ProductModel, CartController): RESETS variables like _quantity to 0 and _inCartItems to 0 inside PopularProductController whenever you click on a product. Also if the product exits in the cart, _inCartItems value is updated.
+	5. addItem(ProductModel): Adds a ProductModel of a specific quantity inside the CartController. Quantity is reset to 0 and _inCartItems are updated.
+- Getters
+  - totalItems: returns total-quantity of items present inside the cart.
+  - getItems: what items are present inside the cart. returns List<CartModel>.
 
 ## RecommendedProductController
+RecommendedProductController is the same as PopularProductController. It accepts instance of RecommendedProductRepo as parameter.
+- Attributes
+  - _recommendedProductList: List used to store all the ProducModels.
+  - _isLoaded: to check where response is converted to ProductModel
+- Member Functions
+  - getRecommendedProductList: awaits for the RecommendedProductsRepo to fetch response and convert it into ProductModels and add all the ProductModels into _recommendedProductList.
+
 
 ## CartController
 	

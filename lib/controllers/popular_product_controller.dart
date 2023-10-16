@@ -35,7 +35,7 @@ class PopularProductController extends GetxController {
       _popularProductList.addAll(Product.fromJson(response.body).products);
       // print(_popularProductList);
       _isLoaded = true;
-      update();
+      update(); // this is a method present inside the GetxController
     } else {}
   }
 
@@ -67,6 +67,13 @@ class PopularProductController extends GetxController {
     }
   }
 
+  /*
+  *
+  * RESETS variables like _quantity to 0 and _inCartItems to 0 inside PopularProductController whenever
+  *  you click on a product. Also if the product exits in the cart, _inCartItems value is updated.
+  * This means PopularProductController provides the data about qty of an item
+  *
+  * */
   void initProduct(ProductModel product, CartController cart) {
     _quantity = 0;
     _inCartItems = 0;
@@ -84,9 +91,9 @@ class PopularProductController extends GetxController {
       _cart.addItem(product, _quantity);
       _quantity = 0; // why ? so that when u open same product next time, the value is updated from cart.
       _inCartItems = _cart.getQuantity(product);
-      _cart.items.forEach((key, value) {
-        print('$key and ${value.quantity} are present');
-      });
+      // _cart.items.forEach((key, value) {
+      //   print('$key and ${value.quantity} are present');
+      // });
     // } else {
     //   Get.snackbar("Item Count", "Add atleast 1 item!",
     //       backgroundColor: AppColors.mainColor, colorText: Colors.white);
@@ -94,11 +101,8 @@ class PopularProductController extends GetxController {
     update();
   }
 
-  int get totalItems{
-    return _cart.totalItems;
-  }
+  // we have initialized getters here
+  int get totalItems => _cart.totalItems;
 
-  List<CartModel> get getItems{
-    return _cart.getItems;
-  }
+  List<CartModel> get getItems => _cart.getItems;
 }
