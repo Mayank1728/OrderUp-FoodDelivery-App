@@ -17,9 +17,9 @@ https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/e2560228-
 	+ NoDataPage.dart
 
 * [Controllers](#Controllers)
-	+ PopularProductController.dart
-	+ RecommendedProductController.dart
-    + CartControllers.dart
+	+ [PopularProductController.dart](##PopularProductController)
+	+ [RecommendedProductController.dart](##RecommendedProductController)
+	+ [CartControllers.dart](##CartController)
 
 * [Data](#Data)
 	+ [Api](#Api)
@@ -81,25 +81,27 @@ Controllers are used to control the flow of data between UI and Models(Data stor
 ![firefox_UchmNqasHb](https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/4163421f-e40f-4c76-bf4e-8319a8db0526)
 
 There are 3 controllers
-* _PopularProductController_ : PopularProductController extends GetxController class and the constructor expects 
-an instance of PopularProductRepo class.
+## PopularProductController
+PopularProductController extends GetxController class and the constructor expects an instance of PopularProductRepo class.
+- Attributes 
+	1. popularProductRepo: reference variable to the PopularProductRepo object passed inside the constructor.
+	2. _popularProductList: List<Dynamic> and used to store all the ProductModels. Product class contains ProductModel.
+	3. _cart: CartController and 
+	4. isLoaded: bool variable which gets updated to true when the JSON response is received and converted to ProductModel.
+	5. _quantity: int and holds the quantity of current/this product item. For example cake ProductModel might have _quantity = 2 and others 0.
+	6. _inCartItems: int and 
+	7. 
+- Member Functions
+	1. getPopularProductList(): awaits for popularProductRepo to fetch JSON response and converts it into ProductModels. All the ProductModels are then added to the _popularProductList.
+	2. setQuantity(bool): when you pass true quantity is increased otherwise its decreased. However, before increasing/decreasing sanity checks are performed using checkQuantity();
+	3. checkQuantity(int): provides sanity checks such as quantity CANNOT be less than 0. Moreover, you cannot add any item more than 20 times. Also, snackbars are displayed when quantity < 0 or quantity > 20.
+	4. initProduct(ProductModel, CartController): Used to create instance of ProductModel inside the cart.
+	5. addItem(ProductModel):
 
-	- Attributes 
-		1. popularProductRepo: reference variable to the PopularProductRepo object passed inside the constructor.
-		2. _popularProductList: List<Dynamic> and used to store all the ProductModels. Product class contains ProductModel.
-		3. _cart: CartController and 
-		4. isLoaded: bool variable which gets updated to true when the JSON response is received and converted to ProductModel.
-		5. _quantity: int and holds the quantity of current/this product item. For example cake ProductModel might have _quantity = 2 and others 0.
-		6. _inCartItems: int and 
-	 	7. 
-	- Member Functions
-  		1. getPopularProductList(): awaits for popularProductRepo to fetch JSON response and converts it into ProductModels. All the ProductModels are then added to the _popularProductList.
-    		2. setQuantity(bool): when you pass true quantity is increased otherwise its decreased. However, before increasing/decreasing sanity checks are performed using checkQuantity();
-		3. checkQuantity(int): provides sanity checks such as quantity CANNOT be less than 0. Moreover, you cannot add any item more than 20 times. Also, snackbars are displayed when quantity < 0 or quantity > 20.
-		4. initProduct(ProductModel, CartController): Used to create instance of ProductModel inside the cart.
-		5. addItem(ProductModel): 
-* _RecommendedProductController_ :
-* _CartController_ :
+
+## RecommendedProductController
+
+## CartController
 	
 
 # MVC(Model View Controller) Pattern
