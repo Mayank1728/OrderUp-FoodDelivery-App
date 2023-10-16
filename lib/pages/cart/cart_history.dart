@@ -163,7 +163,7 @@ class CartHistory extends StatelessWidget {
                                                 child: GestureDetector(
                                                   onTap: () {
                                                     // Repeat order function
-                                                    // itemsPerOrder contains keys of cartItemsPerOrder
+                                                    // itemsPerOrder contains [3,3,1,2]
                                                     // cartHistoryList contains order history <CartModel>
                                                     //List<int> itemsPerOrder = cartItemsPerOrderToList();
                                                     // [3, 2, 4, 3]

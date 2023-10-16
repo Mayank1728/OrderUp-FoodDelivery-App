@@ -13,56 +13,56 @@ https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/e2560228-
 
 ## Project Structure
 
-* Base
+* [Base](#Base)
 	+ NoDataPage.dart
 
-* Controllers
-	+ CartControllers.dart
-	+ popularProductController.dart
-	+ recommendedProductController.dart
+* [Controllers](#Controllers)
+	+ PopularProductController.dart
+	+ RecommendedProductController.dart
+    + CartControllers.dart
 
-* Data
-	+ Api
+* [Data](#Data)
+	+ [Api](#Api)
   		- ApiClient.dart
-	+ Repository
+	+ [Repository](#Repository)
 		- CartRepo.dart
 		- PopularProductRepo.dart
 		- RecommendedProductRepo.dart
 
-* Helper
+* [Helper](#Helper)
 	+ Dependencies.dart
 
-* Modles
+* [Models](#Models)
 	+ CartModel.dart
 		- ProductModel.dart
     
-* Pages
-	+ Account
+* [Pages]
+	+ [Account](#Account)
 		- AccountPage.dart
-	+ Auth
+	+ [Auth](#Auth)
 		- SignUpPage.dart
-	+ Cart
+	+ [Cart](#Cart)
 		- CartHistoryPage.dart
 		- CartPage.dart
-	+ Food
+	+ [Food](#Food)
 		- PopularFoodDetails.dart
 		- RecommendedFoodDetails.dart
-	+ Home
+	+ [Home](#Home)
 		- FoodPageBody.dart
 		- HomePage.dart
 		- MainFoodPage.dart
-	+ Splash
+	+ [Splash](#Splash)
 		- SplashScreen.dart
   
-* Routers
+* [Routers](#Routers)
   	+ RouteHelper.dart
     
-* Utils
+* [Utils](#Utils)
   	+ AppConstants.dart
 	+ Colors.dart
 	+ Dimensions.dart
     
-* Widgets
+* [Widgets](#Widgets)
 	+ AppColumn.dart
 	+ AppIcon.dart
 	+ BigText.dart
@@ -70,7 +70,19 @@ https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/e2560228-
 	+ IconAndText.dart
 	+ SmallText.dart
     
-* main.dart
+* [main.dart](#main.dart)
+
+# Base
+* _NoDataPage_: A stateless page to visualise cart is empty and orderHistory is empty. Constructor expects <br>
+imgPath and text of which text is Required attribute. <br>
+
+# Controllers
+Controllers are used to control the flow of data between UI and Models(Data storage like sql etc). <br>
+There are 3 controllers
+1. * _PopularProductController_ : 
+2. * _RecommendedProductController_ :
+3. * _CartController_ :
+	
 
 # MVC(Model View Controller) Pattern
 ![App Architecture](https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/8b601cd8-b68b-407f-a7e8-ad93863dcae5)
