@@ -17,9 +17,9 @@ https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/e2560228-
 	+ NoDataPage.dart
 
 * [Controllers](#Controllers)
-	+ [PopularProductController.dart](##PopularProductController)
-	+ [RecommendedProductController.dart](##RecommendedProductController)
-	+ [CartControllers.dart](##CartController)
+	+ [PopularProductController.dart](#PopularProductController)
+	+ [RecommendedProductController.dart](#RecommendedProductController)
+	+ [CartControllers.dart](#CartController)
 
 * [Data](#Data)
 	+ [Api](#Api)
