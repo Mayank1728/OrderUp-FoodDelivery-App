@@ -21,54 +21,54 @@ https://github.com/Mayank1728/OrderUp-FoodDelivery-App/assets/71082230/e2560228-
 	+ [RecommendedProductController.dart](#RecommendedProductController)
 	+ [CartControllers.dart](#CartController)
 
-* [Data](#Data)
-	+ [Api](#Api)
-  		- ApiClient.dart
-	+ [Repository](#Repository)
-		- CartRepo.dart
-		- PopularProductRepo.dart
-		- RecommendedProductRepo.dart
+* Data
+	+ Api
+  		- [ApiClient.dart](#Api)
+	+ Repository
+		- [CartRepo.dart](#CartRepo)
+		- [PopularProductRepo.dart](#PopularProductRepo)
+		- [RecommendedProductRepo.dart](#RecommendedProductRepo)
 
-* [Helper](#Helper)
-	+ Dependencies.dart
+* Helper
+	+ [Dependencies.dart](#Dependencies)
 
-* [Models](#Models)
-	+ CartModel.dart
-		- ProductModel.dart
+* Models
+	+ [CartModel.dart](#CartModel)
+    + [ProductModel.dart](#ProductModel)
     
-* [Pages]
-	+ [Account](#Account)
-		- AccountPage.dart
-	+ [Auth](#Auth)
-		- SignUpPage.dart
-	+ [Cart](#Cart)
-		- CartHistoryPage.dart
-		- CartPage.dart
-	+ [Food](#Food)
-		- PopularFoodDetails.dart
-		- RecommendedFoodDetails.dart
-	+ [Home](#Home)
-		- FoodPageBody.dart
-		- HomePage.dart
-		- MainFoodPage.dart
-	+ [Splash](#Splash)
-		- SplashScreen.dart
+* [Pages](#Pages)
+	+ Account
+		- [AccountPage.dart](#AccountPage)
+	+ Auth
+		- [SignUpPage.dart](#SignUpPage)
+	+ Cart
+		- [CartHistoryPage.dart](#CartHistoryPage)
+		- [CartPage.dart](#CartPage)
+	+ Food
+		- [PopularFoodDetails.dart](#PopularFoodDetails)
+		- [RecommendedFoodDetails.dart](#RecommendedFoodDetails)
+	+ Home
+		- [FoodPageBody.dart](#FoodPageBody)
+		- [HomePage.dart](#HomePage)
+		- [MainFoodPage.dart](#MainFoodPage)
+	+ Splash
+		- [SplashScreen.dart](#SplashScreen)
   
 * [Routers](#Routers)
-  	+ RouteHelper.dart
+  	+ [RouteHelper.dart]
     
 * [Utils](#Utils)
-  	+ AppConstants.dart
-	+ Colors.dart
-	+ Dimensions.dart
+  	+ [AppConstants.dart]
+	+ [Colors.dart]
+	+ [Dimensions.dart]
     
 * [Widgets](#Widgets)
-	+ AppColumn.dart
-	+ AppIcon.dart
-	+ BigText.dart
-	+ ExpandableText.dart
-	+ IconAndText.dart
-	+ SmallText.dart
+	+ [AppColumn.dart]
+	+ [AppIcon.dart]
+	+ [BigText.dart]
+	+ [ExpandableText.dart]
+	+ [IconAndText.dart]
+	+ [SmallText.dart]
     
 * [main.dart](#main.dart)
 
@@ -85,19 +85,19 @@ There are 3 controllers
 ## PopularProductController
 PopularProductController extends GetxController class and the constructor expects an instance of PopularProductRepo class.
 - Attributes 
-	1. popularProductRepo: reference variable to the PopularProductRepo object passed inside the constructor.
-	2. _popularProductList: List<Dynamic> and used to store all the ProductModels. Product class contains ProductModel.
-	3. _cart: CartController and 
-	4. isLoaded: bool variable which gets updated to true when the JSON response is received and converted to ProductModel.
-	5. _quantity: int and holds the quantity of current/this product item. For example cake ProductModel might have _quantity = 2 and others 0.
-	6. _inCartItems: int and total items present inside the cart.
-	7. 
+	- popularProductRepo: reference variable to the PopularProductRepo object passed inside the constructor.
+    - _popularProductList: List<Dynamic> and used to store all the ProductModels. Product class contains ProductModel.
+	- _cart: CartController and 
+	- isLoaded: bool variable which gets updated to true when the JSON response is received and converted to ProductModel.
+	- _quantity: int and holds the quantity of current/this product item. For example cake ProductModel might have _quantity = 2 and others 0.
+	- _inCartItems: int and total items present inside the cart.
+  
 - Member Functions
-	1. getPopularProductList(): awaits for popularProductRepo to fetch JSON response and converts it into ProductModels. All the ProductModels are then added to the _popularProductList.
-	2. setQuantity(bool): when you pass true, quantity is increased otherwise its decreased. However, before increasing/decreasing sanity checks are performed using checkQuantity();
-	3. checkQuantity(int): provides sanity checks such as quantity CANNOT be less than 0. Moreover, you cannot add any item more than 20 times. Also, snackbars are displayed when quantity < 0 or quantity > 20.
-	4. initProduct(ProductModel, CartController): RESETS variables like _quantity to 0 and _inCartItems to 0 inside PopularProductController whenever you click on a product. Also if the product exits in the cart, _inCartItems value is updated.
-	5. addItem(ProductModel): Adds a ProductModel of a specific quantity inside the CartController. Quantity is reset to 0 and _inCartItems are updated.
+	- getPopularProductList(): awaits for popularProductRepo to fetch JSON response and converts it into ProductModels. All the ProductModels are then added to the _popularProductList.
+	- setQuantity(bool): when you pass true, quantity is increased otherwise its decreased. However, before increasing/decreasing sanity checks are performed using checkQuantity();
+	- checkQuantity(int): provides sanity checks such as quantity CANNOT be less than 0. Moreover, you cannot add any item more than 20 times. Also, snackbars are displayed when quantity < 0 or quantity > 20.
+	- initProduct(ProductModel, CartController): RESETS variables like _quantity to 0 and _inCartItems to 0 inside PopularProductController whenever you click on a product. Also if the product exits in the cart, _inCartItems value is updated.
+	- addItem(ProductModel): Adds a ProductModel of a specific quantity inside the CartController. Quantity is reset to 0 and _inCartItems are updated.
 - Getters
   - totalItems: returns total-quantity of items present inside the cart.
   - getItems: what items are present inside the cart. returns List<CartModel>.
@@ -131,6 +131,28 @@ Note: CartModel represents items present inside the cart. CartModel contains all
   - totalAmount: List<CartModel> is accepted from getItems. Now we loop through the list to calculate total amount / bill by summing quantity of each item with its respective price. Finally totalBill is returned.
   - set setCart: 
 
+# API
+## ApiClient
+ApiClient constructor expects **BaseUrl** for the API, which is imported from AppConstants.dart file. ApiClient class object is initialized in dependencies.dart file.
+Member function
+- getData(String): returns Future<response> and getData expects route string to fetch data from. Ex- '/api/v1/products/popular'
+
+# Repository
+Repository deals with how data is stored and retrieved in MVC.
+## CartRepo
+CART_LIST and CART_HISTORY_LIST act as key for storing cart data and cart history data.
+- Attributes:
+  - sharedPreferences: Instance of SharedPreferences.
+  - cart: List<String> type and used to store cartData in this variable.
+  - cartHistory: List<String> type and used to store CartHistoryData in this variable.
+- Member function:
+  - addToCartList(List<CartModel>): time on each of the CartModel is updated and then CartModels are converted to string using jsonEncode and added to the cart[]. Then this array is stored inside the sharedPref.
+  - getCartList(): returns List<CartModel>. If CART_LIST key exists inside sharedPref data is loaded inside an array. Then we loop through the array and convert string to CartModel using CartModel.fromJSON().
+  - getCartHistoryList():
+  - addToCartHistoryList():
+  - removeCart():
+
+
 
 # MVC(Model View Controller) Pattern
 ![App Architecture](https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/8b601cd8-b68b-407f-a7e8-ad93863dcae5)
@@ -139,6 +161,10 @@ Note: CartModel represents items present inside the cart. CartModel contains all
 Download APK file from here: https://github.com/Mayank1728/OrderUp-FoodDelivery-App/releases/tag/v1.0 <br>
 VirusTotal Result: https://www.virustotal.com/gui/file/ab822df093084d64e9b568fae030ff4c8403b2c3681f51195cc926c091de61a4?nocache=1 <br>
 
+# Critiques
+1. Pranav Chand: User is not getting any validation that order has been placed. Will insert sound and a new page where user is confirmed order is displayed.
+2. Nitin Desai: User is not receiving any validation item has been added to the cart. Will insert snackbar whenever item is added inside the cart.
+3. Trayi Kashyap: What makes your app unique from other food-delivering apps.
 
 # Things I learned
 1. Networking: https://mayank1728.hashnode.dev/15-things-i-learned-about-networking
