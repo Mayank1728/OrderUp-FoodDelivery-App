@@ -21,6 +21,7 @@ class CartModel {
       this.time,
       this.product});
 
+  // named constructor
   CartModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];

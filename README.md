@@ -94,7 +94,7 @@ PopularProductController extends GetxController class and the constructor expect
 	7. 
 - Member Functions
 	1. getPopularProductList(): awaits for popularProductRepo to fetch JSON response and converts it into ProductModels. All the ProductModels are then added to the _popularProductList.
-	2. setQuantity(bool): when you pass true quantity is increased otherwise its decreased. However, before increasing/decreasing sanity checks are performed using checkQuantity();
+	2. setQuantity(bool): when you pass true, quantity is increased otherwise its decreased. However, before increasing/decreasing sanity checks are performed using checkQuantity();
 	3. checkQuantity(int): provides sanity checks such as quantity CANNOT be less than 0. Moreover, you cannot add any item more than 20 times. Also, snackbars are displayed when quantity < 0 or quantity > 20.
 	4. initProduct(ProductModel, CartController): RESETS variables like _quantity to 0 and _inCartItems to 0 inside PopularProductController whenever you click on a product. Also if the product exits in the cart, _inCartItems value is updated.
 	5. addItem(ProductModel): Adds a ProductModel of a specific quantity inside the CartController. Quantity is reset to 0 and _inCartItems are updated.
@@ -112,7 +112,25 @@ RecommendedProductController is the same as PopularProductController. It accepts
 
 
 ## CartController
-	
+CartController extends GetxController and its constructor expects instance of CartRepo.
+Note: CartModel represents items present inside the cart. CartModel contains all the properties of ProductModel with quantity, time and productModel reference.
+- Attributes
+  - _items: is a Map<int, CartModels> , used to store items present inside the cart.
+  - storageItems: 
+- MemberFunctions
+  - addItem(ProductModel, int): If productModel.id exits in cart, quantity is updated inside the cartModel the productId refers to. Otherwise the productModel.id key is created which refers to its CartModel.
+  - existInCart(ProductModel): returns true if the ProductModel exists in cart otherwise false.
+  - getQuantity(ProductModel): returns quantity of ProductModel present inside the cart otherwise returns 0 when ProductModels doesn't exists inside _items.
+  - getCartData(): 
+  - addToHistory(): addToCartHistoryList from cartRepo is called and then clear() is called.
+  - clear(): the cart is cleared by setting _items = {} and update() is called.
+  - getCartHistoryList(): CartHistoryList is called on cartRepo and this list is returned.
+- Getters and setters
+  - get totalItems: returns total quantity of items present insie the cart or _items map.
+  - get getItems: returns List<CartModel>. Makes a list of all the values present inside _items map. Finally this list is returned.
+  - totalAmount: List<CartModel> is accepted from getItems. Now we loop through the list to calculate total amount / bill by summing quantity of each item with its respective price. Finally totalBill is returned.
+  - set setCart: 
+
 
 # MVC(Model View Controller) Pattern
 ![App Architecture](https://github.com/Mayank1728/Food-Delivery-App/assets/71082230/8b601cd8-b68b-407f-a7e8-ad93863dcae5)

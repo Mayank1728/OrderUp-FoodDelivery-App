@@ -73,11 +73,12 @@ class CartController extends GetxController {
   int getQuantity(ProductModel product) {
     int quantity = 0;
     if (_items.containsKey(product.id!)) {
-      _items.forEach((key, value) {
-        if (key == product.id!) {
-          quantity = value.quantity!;
-        }
-      });
+      // _items.forEach((key, value) {
+      //   if (key == product.id!) {
+      //     quantity = value.quantity!;
+      //   }
+      // });
+      quantity = _items[product.id!]!.quantity!;
     }
     return quantity;
   }
