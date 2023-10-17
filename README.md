@@ -148,7 +148,7 @@ CART_LIST and CART_HISTORY_LIST act as key for storing cart data and cart histor
 - Member function:
   - addToCartList(List<CartModel>): time on each of the CartModel is updated and then CartModels are converted to string using jsonEncode and added to the cart[]. Then this array is stored inside the sharedPref.
   - getCartList(): returns List<CartModel>. If CART_LIST key exists inside sharedPref data is loaded inside an array. Then we loop through the array and convert string to CartModel using CartModel.fromJSON().
-  - getCartHistoryList():
+  - getCartHistoryList(): adds
   - addToCartHistoryList():
   - removeCart():
 
