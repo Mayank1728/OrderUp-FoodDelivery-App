@@ -163,7 +163,7 @@ VirusTotal Result: https://www.virustotal.com/gui/file/ab822df093084d64e9b568fae
 
 # Critiques
 1. Pranav Chand: User is not getting any validation that order has been placed. Will insert sound and a new page where user is confirmed order is displayed.
-2. Nitin Desai: User is not receiving any validation item has been added to the cart. Will insert snackbar whenever item is added inside the cart.
+2. ![Nitin Desai](https://github.com/Nitindesai247): User is not receiving any validation item has been added to the cart. Will insert snackbar whenever item is added inside the cart.
 3. Trayi Kashyap: What makes your app unique from other food-delivering apps.
 
 # Things I learned
